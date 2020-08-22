@@ -1,0 +1,17 @@
+import React, { useContext } from "react";
+import { BookContext } from "../Context/BookContext";
+
+const BookDetails = ({ book }) => {
+  const { removeBook } = useContext(BookContext);
+  return (
+    <li
+      onClick={() => removeBook(book.id)}
+      onMouseOver={(e) => (e.target.style.cursor = "pointer")}
+    >
+      <div className="title">{book.title}</div>
+      <div className="author">{book.author}</div>
+    </li>
+  );
+};
+
+export default BookDetails;
