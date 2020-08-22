@@ -9,7 +9,10 @@ import { v1 } from "uuid";
 export const BookContext = createContext();
 
 const BookContextProvider = (props) => {
-  localStorage.setItem("books", JSON.stringify({}));
+  if (localStorage.getItem("books") == []) {
+    localStorage.setItem("books", JSON.stringify({}));
+  }
+
   const [books, setBooks] = useState([
     JSON.parse(localStorage.getItem("books")),
   ]);
